@@ -30,10 +30,15 @@ public class Hero : MonoBehaviour {
         this.image = this.GetComponent<Image>();
         this.rect = this.GetComponent<RectTransform>();
         this.body = this.GetComponent<Rigidbody2D>();
+        // 输入
+        inputEnable = true;
     }
 
     void Update()
     {
+        if (inputEnable == false)
+            return;
+
         // 进行移动
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
@@ -49,8 +54,9 @@ public class Hero : MonoBehaviour {
 
         // 开启关闭 道具栏
         if (Input.GetKey(KeyCode.Tab))
+        {
             this.prop.SetActive(true);
-        if (Input.GetKey(KeyCode.Escape))
-            this.prop.SetActive(false);
+            this.inputEnable = false;
+        }
     }
 }
