@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePersist : MonoBehaviour
+public class GamePersist
 {
-    // Start is called before the first frame update
-    void Start()
+    // 设计为单例模式
+    private static GamePersist gamePersist = null;
+
+    // 获取单例
+    public static GamePersist GetInstance()
     {
-        
+        if (GamePersist.gamePersist == null)
+            GamePersist.gamePersist = new GamePersist();
+        return GamePersist.gamePersist;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Hero hero;
 }
