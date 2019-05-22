@@ -14,11 +14,14 @@ public class PatrolNpc : MonoBehaviour
     public float area;
 
     // 记录初始位置
+    // y位置
     private float origin;
 
     void Start()
     {
         this.rect = this.GetComponent<RectTransform>();
+        this.origin = this.rect.anchoredPosition3D.x;
+        StartCoroutine(Movement());
     }
 
     // Update is called once per frame
@@ -28,9 +31,22 @@ public class PatrolNpc : MonoBehaviour
     }
     IEnumerator Movement()
     {
+        bool toRight = true;
+
         while (true)
         {
-            yield return new WaitForSeconds(0.12f);
+            if (this.rect.anchoredPosition3D.x > origin + area)
+                toRight = false;
+            else if (this.rect.anchoredPosition3D.x < origin - area)
+                toRight = true;
+
+            // 进行移动
+            if (toRight)
+                this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+            else
+                this.rect.anchoredPosition3D += new Vector3(-speed, 0, 0);
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
