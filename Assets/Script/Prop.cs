@@ -34,9 +34,13 @@ public class Prop : MonoBehaviour
         choosed[index - 1].SetActive(true);
 
         // 更新道具贴图
-        for(int i = 0; i<GamePersist.GetInstance().myProps.Count; ++i)
+        for(int i = 0; i <= 5; ++i)
         {
-            items[i].sprite = Resources.Load<Sprite>(GamePersist.GetInstance().myProps[i]);
+            // 更新道具
+            if (i < GamePersist.GetInstance().myProps.Count)
+                items[i].sprite = Resources.Load<Sprite>(GamePersist.GetInstance().myProps[i]);
+            else
+                items[i].sprite = null;
         }
     }
 
@@ -71,14 +75,18 @@ public class Prop : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.E))
             {
+                // 使用道具
                 if(index <= GamePersist.GetInstance().myProps.Count)
                 {
                     string propName = GamePersist.GetInstance().myProps[index - 1];
+                    // 调用对应的道具功能
                     GamePersist.GetInstance().propMap[propName].Invoke();
+                    // 消耗道具
+                    GamePersist.GetInstance().myProps.Remove(propName);
                     Escape();
                 }
             }
-            else if (Input.GetKey(KeyCode.Escape))
+            else if (Input.GetKey(KeyCode.Q))
             {
                 Escape();
             }
