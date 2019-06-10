@@ -17,6 +17,7 @@ public class GamePersist
 
         myProps = new List<string>();
         // myProps.Add("SpeedDrug");
+        this.isPause = false;
     }
 
     // 设计为单例模式
@@ -41,4 +42,6 @@ public class GamePersist
 
     // 各种道具的map
     public Dictionary<string, Item> propMap;
+
+    public bool isPause;
 }

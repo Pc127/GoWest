@@ -52,6 +52,11 @@ public class Hero : MonoBehaviour {
     // 动画组件
     private Animator animator;
 
+    // 移动范围
+    public int begin;
+
+    public int end;
+
     private void Start()
     {
         // 向全局信息注册
@@ -81,7 +86,7 @@ public class Hero : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
             // 未碰到障碍物时前进
-            if(obstacle == null && door == null)
+            if(obstacle == null && door == null && this.sceneRect.anchoredPosition.x > end)
             {
                 this.animator.SetBool("faceRight", true);
                 this.animator.SetBool("IsRunning", true);
@@ -91,10 +96,13 @@ public class Hero : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
         {
-            this.animator.SetBool("faceRight", false);
-            this.animator.SetBool("IsRunning", true);
-            this.sceneRect.Translate(new Vector3(speed, 0, 0));
-            this.faceRight = false;
+            if(this.sceneRect.anchoredPosition.x < begin)
+            {
+                this.animator.SetBool("faceRight", false);
+                this.animator.SetBool("IsRunning", true);
+                this.sceneRect.Translate(new Vector3(speed, 0, 0));
+                this.faceRight = false;
+            }
         }
         else
         {
@@ -112,7 +120,7 @@ public class Hero : MonoBehaviour {
         if (Input.GetKey(KeyCode.Escape))
         {
             // 结束游戏
-            StartCoroutine(EndGame());
+            // StartCoroutine(EndGame());
         }
     }
 
@@ -134,7 +142,7 @@ public class Hero : MonoBehaviour {
 
     IEnumerator MakeVisible()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.5f);
         spirte.color = new Color(255, 255, 255, 1);
         this.isVisible = true;
     }

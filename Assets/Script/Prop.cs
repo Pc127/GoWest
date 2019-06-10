@@ -89,7 +89,7 @@ public class Prop : MonoBehaviour
                     }
                 }
             }
-            else if (Input.GetKey(KeyCode.Q))
+            else if (Input.GetKey(KeyCode.Escape)||Input.GetKey(KeyCode.Q))
             {
                 Escape();
             }
