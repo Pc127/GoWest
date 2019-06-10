@@ -11,8 +11,8 @@ public class Hero : MonoBehaviour {
     // 场景 利用场景反向移动
     public GameObject scene;
 
-    // image组件
-    private Image image;
+    // sprite组件
+    private SpriteRenderer spirte;
 
     private Rigidbody2D body;
 
@@ -38,19 +38,38 @@ public class Hero : MonoBehaviour {
     [System.NonSerialized]
     public bool isHide;
 
+    [System.NonSerialized]
+    public bool isVisible;
+
+    // 障碍物
+    [System.NonSerialized]
+    public GameObject obstacle;
+
+    // 门
+    [System.NonSerialized]
+    public GameObject door;
+
+    // 动画组件
+    private Animator animator;
+
     private void Start()
     {
         // 向全局信息注册
         GamePersist.GetInstance().hero = this;
-        this.image = this.GetComponent<Image>();
+        this.spirte= this.GetComponent<SpriteRenderer>();
         this.sceneRect = this.scene.GetComponent<RectTransform>();
         this.body = this.GetComponent<Rigidbody2D>();
         this.heroRect = this.GetComponent<RectTransform>();
+        this.animator = this.GetComponent<Animator>();
         // 输入
         inputEnable = true;
         speed = 3;
         // 可以被侦察
         this.isHide = false;
+        this.isVisible = true;
+        // 障碍物
+        this.obstacle = null;
+        this.door = null;
     }
 
     void Update()
@@ -61,13 +80,25 @@ public class Hero : MonoBehaviour {
         // 进行移动
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
-            this.sceneRect.Translate(new Vector3(-speed, 0, 0));
-            this.faceRight = true;
+            // 未碰到障碍物时前进
+            if(obstacle == null && door == null)
+            {
+                this.animator.SetBool("faceRight", true);
+                this.animator.SetBool("IsRunning", true);
+                this.sceneRect.Translate(new Vector3(-speed, 0, 0));
+                this.faceRight = true;
+            }  
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
         {
+            this.animator.SetBool("faceRight", false);
+            this.animator.SetBool("IsRunning", true);
             this.sceneRect.Translate(new Vector3(speed, 0, 0));
             this.faceRight = false;
+        }
+        else
+        {
+            this.animator.SetBool("IsRunning", false);
         }
             
 
@@ -91,5 +122,30 @@ public class Hero : MonoBehaviour {
         GamePersist.GetInstance().subtitle = "游戏即将结束";
         yield return new WaitForSeconds(2.0f);
         Application.Quit();
+    }
+
+    public void MakeInvisible()
+    {
+        Debug.Log("改变透明度");
+        spirte.color = new Color(255, 255, 255, 0.1f);
+        this.isVisible = false;
+        StartCoroutine(MakeVisible());
+    }
+
+    IEnumerator MakeVisible()
+    {
+        yield return new WaitForSeconds(1.2f);
+        spirte.color = new Color(255, 255, 255, 1);
+        this.isVisible = true;
+    }
+
+    public void Hide()
+    {
+        this.spirte.sortingOrder = 5;
+    }
+
+    public void DisHide()
+    {
+        this.spirte.sortingOrder = 7;
     }
 }

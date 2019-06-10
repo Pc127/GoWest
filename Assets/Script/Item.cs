@@ -6,5 +6,5 @@ using UnityEngine;
 public abstract class Item
 {
     // 只有一个方法 被调用时候执行
-    abstract public void Invoke();
+    abstract public bool Invoke();
 }

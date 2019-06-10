@@ -7,9 +7,13 @@ public class GamePersist
     // 构造函数
     private GamePersist()
     {
-        // 添加道具加速药水
+        // 添加道具 1加速药水 2隐身药水 3障碍清除 4开门道具
         propMap = new Dictionary<string, Item>();
-        propMap.Add("SpeedDrug", new SpeedDrug());
+        propMap.Add("移速道具-云头靴", new SpeedDrug());
+        propMap.Add("隐身道具-神隐水", new InvisibleDrug());
+        propMap.Add("隐身道具-斗篷", new InvisibleDrug());
+        propMap.Add("障碍清除道具-山斧", new ClearAway());
+        propMap.Add("开门道具-佛像", new OpenDoor());
 
         myProps = new List<string>();
         // myProps.Add("SpeedDrug");

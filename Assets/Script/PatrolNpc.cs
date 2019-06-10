@@ -17,10 +17,14 @@ public class PatrolNpc : MonoBehaviour
     // y位置
     private float origin;
 
+    // 碰撞体
+    private BoxCollider2D box;
+
     void Start()
     {
         this.rect = this.GetComponent<RectTransform>();
         this.origin = this.rect.anchoredPosition3D.x;
+        this.box = this.GetComponent<BoxCollider2D>();
         StartCoroutine(Movement());
     }
 
@@ -42,9 +46,17 @@ public class PatrolNpc : MonoBehaviour
 
             // 进行移动
             if (toRight)
+            {
+                this.box.offset = new Vector2(5, 0);
                 this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+            }
+
             else
+            {
                 this.rect.anchoredPosition3D += new Vector3(-speed, 0, 0);
+                this.box.offset = new Vector2(-5, 0);
+            }
+                
 
             yield return new WaitForSeconds(0.1f);
         }

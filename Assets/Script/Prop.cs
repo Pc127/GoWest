@@ -38,7 +38,7 @@ public class Prop : MonoBehaviour
         {
             // 更新道具
             if (i < GamePersist.GetInstance().myProps.Count)
-                items[i].sprite = Resources.Load<Sprite>(GamePersist.GetInstance().myProps[i]);
+                items[i].sprite = Resources.Load<Sprite>("道具PNG/" + GamePersist.GetInstance().myProps[i]);
             else
                 items[i].sprite = null;
         }
@@ -80,10 +80,13 @@ public class Prop : MonoBehaviour
                 {
                     string propName = GamePersist.GetInstance().myProps[index - 1];
                     // 调用对应的道具功能
-                    GamePersist.GetInstance().propMap[propName].Invoke();
+                    bool result = GamePersist.GetInstance().propMap[propName].Invoke();
                     // 消耗道具
-                    GamePersist.GetInstance().myProps.Remove(propName);
-                    Escape();
+                    if(result == true)
+                    {
+                        GamePersist.GetInstance().myProps.Remove(propName);
+                        Escape();
+                    }
                 }
             }
             else if (Input.GetKey(KeyCode.Q))
