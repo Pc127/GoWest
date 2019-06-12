@@ -115,6 +115,7 @@ public class Hero : MonoBehaviour {
         {
             this.prop.SetActive(true);
             this.inputEnable = false;
+            GamePersist.GetInstance().audio.PlayAudioClip("打开行囊");
         }
 
         if (Input.GetKey(KeyCode.Escape))

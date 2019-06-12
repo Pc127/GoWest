@@ -55,12 +55,16 @@ public class Prop : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.12f);
             if (this.show.activeSelf == false)
+            {
+                yield return new WaitForSeconds(0.1f);
                 continue;
+            }
+                
 
             if (Input.GetKey("a"))
             {
+                GamePersist.GetInstance().audio.PlayAudioClip("道具选择");
                 if (index == 1)
                     index = 6;
                 else
@@ -68,6 +72,7 @@ public class Prop : MonoBehaviour
             }
             else if (Input.GetKey("d"))
             {
+                GamePersist.GetInstance().audio.PlayAudioClip("道具选择");
                 if (index == 6)
                     index = 1;
                 else
@@ -84,15 +89,22 @@ public class Prop : MonoBehaviour
                     // 消耗道具
                     if(result == true)
                     {
+                        // 调用音频
+                        GamePersist.GetInstance().audio.PlayAudioClip("使用道具");
                         GamePersist.GetInstance().myProps.Remove(propName);
                         Escape();
+                        yield return new WaitForSeconds(0.12f);
+                        continue;
                     }
                 }
             }
             else if (Input.GetKey(KeyCode.Escape)||Input.GetKey(KeyCode.Q))
             {
                 Escape();
+                yield return new WaitForSeconds(0.12f);
             }
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

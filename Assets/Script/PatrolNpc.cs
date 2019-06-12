@@ -20,11 +20,15 @@ public class PatrolNpc : MonoBehaviour
     // 碰撞体
     private BoxCollider2D box;
 
+    // sp
+    private SpriteRenderer sp;
+
     void Start()
     {
         this.rect = this.GetComponent<RectTransform>();
         this.origin = this.rect.anchoredPosition3D.x;
         this.box = this.GetComponent<BoxCollider2D>();
+        this.sp = this.GetComponent<SpriteRenderer>();
         StartCoroutine(Movement());
     }
 
@@ -49,12 +53,14 @@ public class PatrolNpc : MonoBehaviour
             {
                 this.box.offset = new Vector2(5, 0);
                 this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+                this.sp.flipX = true;
             }
 
             else
             {
                 this.rect.anchoredPosition3D += new Vector3(-speed, 0, 0);
                 this.box.offset = new Vector2(-5, 0);
+                this.sp.flipX = false;
             }
                 
 

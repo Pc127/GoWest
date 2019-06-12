@@ -34,6 +34,9 @@ public class GamePersist
     // 玩家
     public Hero hero;
 
+    // 音频文件
+    public AudioController audio;
+
     // 字幕
     public string subtitle;
 

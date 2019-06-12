@@ -12,6 +12,7 @@ public class ClearAway : Item
         // 直接设为false
         GamePersist.GetInstance().hero.obstacle.SetActive(false);
         GamePersist.GetInstance().hero.obstacle = null;
+        GamePersist.GetInstance().audio.PlayAudioClip("斧头");
         return true;
     }
 }
