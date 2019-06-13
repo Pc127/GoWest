@@ -8,10 +8,11 @@ public class Stairs : MonoBehaviour
     public string destination = "PurpleDoor_2_1";
     private string temp;
     private bool ismoving = false;
+    public GameObject show;
     void OnTriggerStay2D(Collider2D other)
     {
 
-        if (Input.GetKey("e") && !ismoving)
+        if (Input.GetKey("e") && !ismoving&&!show.activeSelf)
         {
             ismoving = true;
             float speedtemp = GamePersist.GetInstance().hero.speed;
