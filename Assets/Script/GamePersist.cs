@@ -18,6 +18,18 @@ public class GamePersist
         myProps = new List<string>();
         // myProps.Add("SpeedDrug");
         this.isPause = false;
+
+        levelState = new List<bool>();
+
+        // 初始化关卡状态
+        for(int i = 0; i<=4; i++)
+        {
+            levelState.Add(false);
+            // levelState[i] = false;
+        }
+        // 把第一关设置为当前关卡
+        currentLevel = 0;
+
     }
 
     // 设计为单例模式
@@ -46,5 +58,12 @@ public class GamePersist
     // 各种道具的map
     public Dictionary<string, Item> propMap;
 
+    // 暂停设置
     public bool isPause;
+
+    // 关卡状态 0：未开启 1:通关 2：当前 
+    public List<bool> levelState;
+
+    // 当前关卡
+    public int currentLevel;
 }
