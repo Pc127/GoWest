@@ -57,6 +57,10 @@ public class Hero : MonoBehaviour {
 
     public int end;
 
+    // 让英雄进行移动
+    [System.NonSerialized]
+    public bool heroMove;
+
     private void Start()
     {
         // 向全局信息注册
@@ -75,6 +79,7 @@ public class Hero : MonoBehaviour {
         // 障碍物
         this.obstacle = null;
         this.door = null;
+        this.heroMove = false;
     }
 
     void Update()
@@ -90,7 +95,15 @@ public class Hero : MonoBehaviour {
             {
                 this.animator.SetBool("faceRight", true);
                 this.animator.SetBool("IsRunning", true);
-                this.sceneRect.Translate(new Vector3(-speed, 0, 0));
+                if (!heroMove)
+                {
+                    this.sceneRect.Translate(new Vector3(-speed, 0, 0));
+                }
+                else
+                {
+                    this.heroRect.Translate(new Vector3(speed, 0, 0));
+                }
+                
                 this.faceRight = true;
             }  
         }
@@ -100,7 +113,15 @@ public class Hero : MonoBehaviour {
             {
                 this.animator.SetBool("faceRight", false);
                 this.animator.SetBool("IsRunning", true);
-                this.sceneRect.Translate(new Vector3(speed, 0, 0));
+
+                if (!heroMove)
+                {
+                    this.sceneRect.Translate(new Vector3(speed, 0, 0));
+                }
+                else
+                {
+                    this.heroRect.Translate(new Vector3(-speed, 0, 0));
+                }
                 this.faceRight = false;
             }
         }

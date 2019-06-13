@@ -70,4 +70,10 @@ public class UIThings : MonoBehaviour
     {
 
     }
+
+    public void LoadScene(int i)
+    {
+        // 加载场景编号
+        Application.LoadLevel(i + 1);
+    }
 }
