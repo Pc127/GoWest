@@ -2237,7 +2237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &167149402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,7 +3423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &240772593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,7 +3770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 32
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &261316388
 GameObject:
   m_ObjectHideFlags: 0
@@ -5406,7 +5409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 10.24
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &503628099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,7 +6911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16.2
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &671212066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8952,7 +8957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 19.2
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &902510858
 GameObject:
   m_ObjectHideFlags: 0
@@ -10196,7 +10202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 10.24
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!212 &1000461638
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10714,7 +10721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 24.32
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1031725027
 GameObject:
   m_ObjectHideFlags: 0
@@ -11823,7 +11831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16.2
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1133808772
 GameObject:
   m_ObjectHideFlags: 0
@@ -12497,7 +12506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1212752626
 GameObject:
   m_ObjectHideFlags: 0
@@ -13755,7 +13765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 50
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1332171208
 GameObject:
   m_ObjectHideFlags: 0
@@ -15614,7 +15625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1546899257
 GameObject:
   m_ObjectHideFlags: 0
@@ -15850,7 +15862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 16
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1565821195
 GameObject:
   m_ObjectHideFlags: 0
@@ -16225,7 +16238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1624f4e64c3e3ad4d9b4b981b186a512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 24.5
+  departure: ground
+  destination: PurpleDoor_2_1
 --- !u!1 &1612032311
 GameObject:
   m_ObjectHideFlags: 0
@@ -18701,10 +18715,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1600, y: 900}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
