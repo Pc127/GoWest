@@ -44,7 +44,12 @@ public class Hero : MonoBehaviour {
     // 障碍物
     [System.NonSerialized]
     public GameObject obstacle;
-
+    // 障碍物
+    [System.NonSerialized]
+    public GameObject movestrainleft;
+    // 障碍物
+    [System.NonSerialized]
+    public GameObject movestrainright;
     // 门
     [System.NonSerialized]
     public GameObject door;
@@ -79,6 +84,8 @@ public class Hero : MonoBehaviour {
         // 障碍物
         this.obstacle = null;
         this.door = null;
+        this.movestrainleft = null;
+        this.movestrainright = null;
         this.heroMove = false;
     }
 
@@ -91,7 +98,7 @@ public class Hero : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
         {
             // 未碰到障碍物时前进
-            if(obstacle == null && door == null && this.sceneRect.anchoredPosition.x > end)
+            if (obstacle == null && movestrainright == null && door == null && this.sceneRect.anchoredPosition.x > end)
             {
                 this.animator.SetBool("faceRight", true);
                 this.animator.SetBool("IsRunning", true);
@@ -109,7 +116,7 @@ public class Hero : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
         {
-            if(this.sceneRect.anchoredPosition.x < begin)
+            if(movestrainleft == null && this.sceneRect.anchoredPosition.x < begin)
             {
                 this.animator.SetBool("faceRight", false);
                 this.animator.SetBool("IsRunning", true);

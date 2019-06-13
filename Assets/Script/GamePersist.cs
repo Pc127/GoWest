@@ -9,12 +9,20 @@ public class GamePersist
     {
         // 添加道具 1加速药水 2隐身药水 3障碍清除 4开门道具
         propMap = new Dictionary<string, Item>();
+        propMap = new Dictionary<string, Item>();
         propMap.Add("移速道具-云头靴", new SpeedDrug());
+        propMap.Add("移速道具-仙女飘", new SpeedDrug());
+        propMap.Add("移速道具-飞莲", new SpeedDrug());
         propMap.Add("隐身道具-神隐水", new InvisibleDrug());
+        propMap.Add("隐身道具-符纸隐", new InvisibleDrug());
         propMap.Add("隐身道具-斗篷", new InvisibleDrug());
         propMap.Add("障碍清除道具-山斧", new ClearAway());
+        propMap.Add("障碍清除道具-炸药", new ClearAway());
+        propMap.Add("障碍清除道具-轰天雷", new ClearAway());
         propMap.Add("开门道具-佛像", new OpenDoor());
-
+        propMap.Add("传送道具-符纸门", new AheadDoor());
+        propMap.Add("传送道具-飞钩", new TopDoor());
+        propMap.Add("探路道具-兔子灯", new Rabbit());
         myProps = new List<string>();
         // myProps.Add("SpeedDrug");
         this.isPause = false;
@@ -22,7 +30,7 @@ public class GamePersist
         levelState = new List<bool>();
 
         // 初始化关卡状态
-        for(int i = 0; i<=4; i++)
+        for (int i = 0; i <= 4; i++)
         {
             levelState.Add(false);
             // levelState[i] = false;

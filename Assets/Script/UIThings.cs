@@ -29,6 +29,7 @@ public class UIThings : MonoBehaviour
     {
         this.prop.SetActive(true);
         GamePersist.GetInstance().hero.inputEnable = false;
+        GamePersist.GetInstance().audio.PlayAudioClip("打开行囊");
     }
 
     // 展示线索
