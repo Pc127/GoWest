@@ -19,6 +19,6 @@ public class DangerArea : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         // 清空道具
         GamePersist.GetInstance().myProps.Clear();
-        Application.LoadLevel(0);
+        Application.LoadLevel(GamePersist.GetInstance().currentLevel + 2);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity;
 
 public class UIThings : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class UIThings : MonoBehaviour
     public GameObject level;
 
     public GameObject setup;
+
+    public GameObject video;
     
     void Start()
     {
@@ -22,6 +25,18 @@ public class UIThings : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void NewGame()
+    {
+        video.SetActive(true);
+        StartCoroutine(WaitForVideo());
+    }
+
+    IEnumerator WaitForVideo()
+    {
+        yield return new WaitForSeconds(28);
+        LoadScene(1);
     }
 
     // 开启道具栏

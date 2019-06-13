@@ -77,7 +77,7 @@ public class Hero : MonoBehaviour {
         this.animator = this.GetComponent<Animator>();
         // 输入
         inputEnable = true;
-        speed = 3;
+        speed = 2;
         // 可以被侦察
         this.isHide = false;
         this.isVisible = true;

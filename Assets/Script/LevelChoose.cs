@@ -39,8 +39,18 @@ public class LevelChoose : MonoBehaviour
 
     public void LoadScene(int i)
     {
-        // 加载场景编号
-        Application.LoadLevel(i+1);
+        // 场景1
+        if(i == 1)
+        {
+            // 加载场景编号
+            Application.LoadLevel(i + 1);
+        }
+        else if(GamePersist.GetInstance().levelState[i-2])
+        {
+            // 前一关通过才可以
+            Application.LoadLevel(i + 1);
+        }
+        
     }
 
 }
