@@ -16,6 +16,8 @@ public class ChangeSceneTrigger : MonoBehaviour
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(delay);
+        GamePersist.GetInstance().levelState[1] = true;
+        GamePersist.GetInstance().currentLevel = 1;
         // 加载场景
         Application.LoadLevel(sceneIndex);
     }
