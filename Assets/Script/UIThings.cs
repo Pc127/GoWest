@@ -44,7 +44,7 @@ public class UIThings : MonoBehaviour
 
     IEnumerator WaitForVideo()
     {
-        yield return new WaitForSeconds(28);
+        yield return new WaitForSeconds(40);
         LoadScene(1);
     }
 

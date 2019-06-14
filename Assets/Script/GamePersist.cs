@@ -9,7 +9,6 @@ public class GamePersist
     {
         // 添加道具 1加速药水 2隐身药水 3障碍清除 4开门道具
         propMap = new Dictionary<string, Item>();
-        propMap = new Dictionary<string, Item>();
         propMap.Add("移速道具-云头靴", new SpeedDrug());
         propMap.Add("移速道具-仙女飘", new SpeedDrug());
         propMap.Add("移速道具-飞莲", new SpeedDrug());
@@ -25,6 +24,22 @@ public class GamePersist
         propMap.Add("探路道具-兔子灯", new Rabbit());
         myProps = new List<string>();
         // myProps.Add("SpeedDrug");
+
+        // 初始化道具说明
+        propInfo = new Dictionary<string, string>();
+        propInfo.Add("移速道具-云头靴", "增加移速，持续时间3s");
+        propInfo.Add("隐身道具-神隐水", "可短暂隐身，持续时间1.5s");
+        propInfo.Add("开门道具 - 佛像", "好像可以打开某处的门");
+        propInfo.Add("移速道具-仙女飘", "增加移速，持续时间3s");
+        propInfo.Add("移速道具-飞莲", "增加移速，持续时间3s");
+        propInfo.Add("隐身道具-符纸隐", "可短暂隐身，持续时间1.5s");
+        propInfo.Add("隐身道具-斗篷", "可短暂隐身，持续时间1.5s");
+        propInfo.Add("障碍清除道具-山斧", "清除乱石或者荆棘障碍，仅可以使用一次");
+        propInfo.Add("障碍清除道具-炸药", "清除乱石或者荆棘障碍，仅可以使用一次");
+        propInfo.Add("障碍清除道具-轰天雷", "清除乱石或者荆棘障碍，仅可以使用一次");
+        propInfo.Add("传送道具-符纸门", "可以瞬间移动到特定位置");
+        propInfo.Add("传送道具-飞钩", "可以瞬间移动到特定位置");
+        propInfo.Add("探路道具-兔子灯", "可以引开马贼");
         this.isPause = false;
 
         levelState = new List<bool>();
@@ -74,4 +89,10 @@ public class GamePersist
 
     // 当前关卡
     public int currentLevel;
+
+    // 道具说明
+    public Dictionary<string, string> propInfo;
+
+    // 道具栏
+    public Prop prop;
 }

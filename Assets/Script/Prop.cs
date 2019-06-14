@@ -14,13 +14,14 @@ public class Prop : MonoBehaviour
     public GameObject show;
 
     // 当前指向的道具
-    int index;
+    public int index;
     
     void Start()
     {
         index = 1;
         // 调用输入检测迭代器
         StartCoroutine(DectorInput());
+        GamePersist.GetInstance().prop = this;
     }
     
     void Update()
