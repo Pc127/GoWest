@@ -43,26 +43,28 @@ public class PatrolNpc : MonoBehaviour
 
         while (true)
         {
-            if (this.rect.anchoredPosition3D.x > origin + area)
-                toRight = false;
-            else if (this.rect.anchoredPosition3D.x < origin - area)
-                toRight = true;
-
-            // 进行移动
-            if (toRight)
+            if (!GamePersist.GetInstance().isPause)
             {
-                this.box.offset = new Vector2(5, 0);
-                this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
-                this.sp.flipX = true;
-            }
+                if (this.rect.anchoredPosition3D.x > origin + area)
+                    toRight = false;
+                else if (this.rect.anchoredPosition3D.x < origin - area)
+                    toRight = true;
 
-            else
-            {
-                this.rect.anchoredPosition3D += new Vector3(-speed, 0, 0);
-                this.box.offset = new Vector2(-5, 0);
-                this.sp.flipX = false;
+                // 进行移动
+                if (toRight)
+                {
+                    this.box.offset = new Vector2(5, 0);
+                    this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+                    this.sp.flipX = true;
+                }
+
+                else
+                {
+                    this.rect.anchoredPosition3D += new Vector3(-speed, 0, 0);
+                    this.box.offset = new Vector2(-5, 0);
+                    this.sp.flipX = false;
+                }
             }
-                
 
             yield return new WaitForSeconds(0.1f);
         }

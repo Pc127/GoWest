@@ -34,12 +34,17 @@ public class PursueNpc : MonoBehaviour
     {
         while (true)
         {
-            if (this.rect.anchoredPosition3D.x > origin + area)
-                break;
-            else
-                this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+            if (!GamePersist.GetInstance().isPause)
+            {
+                if (this.rect.anchoredPosition3D.x > origin + area)
+                    break;
+                else
+                    this.rect.anchoredPosition3D += new Vector3(speed, 0, 0);
+                
+            }
 
             yield return new WaitForSeconds(0.1f);
+
         }
     }
 }
