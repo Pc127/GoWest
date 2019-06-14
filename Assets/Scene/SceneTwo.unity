@@ -2876,7 +2876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: {fileID: 1448978377}
-  prop: {fileID: 0}
+  prop: {fileID: 7677097805765103438}
   begin: 1500
   end: -10500
 --- !u!212 &235046800
@@ -24920,6 +24920,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   show: {fileID: 7677097805765103438}
+  index: 0
 --- !u!212 &46854896553326704
 SpriteRenderer:
   m_ObjectHideFlags: 0
