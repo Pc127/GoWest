@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    private SpriteRenderer spirte;
+    void Start()
+    {
+        this.spirte = this.GetComponent<SpriteRenderer>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
-        GamePersist.GetInstance().subtitle = "啊，官逼民反啊。";
+        this.spirte.sortingOrder = 10;
+        //GamePersist.GetInstance().subtitle = "啊，官逼民反啊。";
         StartCoroutine(Delay.DelayToInvokeDo(() =>
         {
             if (!GamePersist.GetInstance().hero.isHide)
             {
-                GamePersist.GetInstance().subtitle = "你死了";
-                StartCoroutine(EndGame());
+                GamePersist.GetInstance().hero.heroMove = false;
+               //GamePersist.GetInstance().subtitle = "你死了";
+               StartCoroutine(EndGame());
             }
-        }, 1f));
+        }, 1.5f));
        
     }
 
     IEnumerator EndGame()
     {
         yield return new WaitForSeconds(2.0f);
-        Application.LoadLevel(0);
+        GamePersist.GetInstance().myProps.Clear();
+        Application.LoadLevel(GamePersist.GetInstance().currentLevel + 2);
 
     }
 }

@@ -293,7 +293,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0482a7cc4d3b6524db720cdc1e91d15e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3695d1917d3d51e4c8d3219d28cfe51d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -964,7 +964,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979616976}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 9b01eac3c9f426948aaa63ec7e8467d7, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 5b036ff622c7ada41877865ccafd73e3, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1725764914}
